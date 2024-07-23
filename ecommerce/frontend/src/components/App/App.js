@@ -1,12 +1,8 @@
-import React from 'react';
-import Main from '../Main';
+import React from "react";
+import Main from "../Main";
 
 function App() {
-  return (
-    <>
-      <Main />
-    </>
-  );
+  return <Main />;
 }
 
 export default App;
