@@ -4,30 +4,51 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
+import { getAllProducts } from '../../api/api';
+import { useState, useEffect } from 'react';
 
 const ProductCard = ()  => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const productsData = await getAllProducts();
+        setProducts(productsData);
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
   return (
-    <Card sx={{ maxWidth: 300 }}>
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          height="175"
-          image="https://neekcotton.com/cdn/shop/products/3_NOVIEMBRE_kits_7_e8a53d39-a84d-4699-89c9-f61ce6ac566f_720x715.jpg?v=1651682238"
-          alt="green iguana"
-        />
-        <CardContent>
+    <div>
+      {products.map((product)=>(
+      <Card sx={{ maxWidth: 300 }}> 
+        <CardActionArea>
+          <CardMedia
+            component="img"
+            height="175"
+            image={product.img1}
+            alt={product.productName}
+          />
+          <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Nombre
+            {product.productName}
           </Typography>
           <Typography variant="subtitle1" color="text.secondary">
-            $Precio
+            {product.productPrice}
           </Typography>
           <Typography variant="body2">
-            Description Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            {product.productDescription}
           </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
+          </CardContent>
+        </CardActionArea>
+      </Card>
+      ))}
+    </div>
   );
 }
 
