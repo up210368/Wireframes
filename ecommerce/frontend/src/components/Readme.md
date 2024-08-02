@@ -1,1 +1,0 @@
-<h1>Chavbos estos son los componentes con lo que ami parecer vamos a estar trabajando, algunos no tengo claro que haran en la noche si todos ppueden aclararemos eso</h1>
