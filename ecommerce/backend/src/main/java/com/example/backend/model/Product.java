@@ -20,6 +20,9 @@ public class Product {
     @Column(name = "productName")
     private String productName;
 
+    @Column(name = "rating")
+    private int rating;
+
     @Column(name = "description")
     private String description;
 

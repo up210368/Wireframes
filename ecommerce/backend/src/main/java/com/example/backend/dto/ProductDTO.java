@@ -3,6 +3,7 @@ package com.example.backend.dto;
 public class ProductDTO {
     private int productID;
     private String productName;
+    private int rating;
     private String description;
     private float productPrice;
     private int productQTY;
@@ -26,6 +27,14 @@ public class ProductDTO {
 
     public void setProductName(String productName) {
         this.productName = productName;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
     }
 
     public String getDescription() {

@@ -26,12 +26,12 @@ public class ProductController {
         return productService.getAllProducts();
     }
 
-    @GetMapping("/allproductsdto")
+    @GetMapping("/productsdto")
     public List<ProductDTO> getAllProductsDtos() {
         return productService.getAllProductsDtos();
     }
 
-    @GetMapping("/products/{id}")
+    @GetMapping("/productsdto/{id}")
     public ResponseEntity<Product> getProductById(@PathVariable int id) {
         Optional<Product> product = productService.getProductById(id);
         return product.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
