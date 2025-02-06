@@ -3,7 +3,10 @@ SET NAMES utf8;
 CREATE Table `Products` (
   `productID` integer not null AUTO_INCREMENT,
   `productName` varchar (30),
+<<<<<<< HEAD
+=======
   `rating` smallint(1),
+>>>>>>> develop
   `description`  varchar (30),
   `productPrice` float,
   `productQTY` smallint (6),
